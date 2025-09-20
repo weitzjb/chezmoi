@@ -1,0 +1,106 @@
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'roxma/nvim-yarp'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf.vim'
+Plug 'chrisbra/csv.vim'
+Plug 'icymind/neosolarized'
+Plug 'vim-ruby/vim-ruby'
+Plug 'junegunn/fzf'
+Plug 'vim-scripts/loremipsum'
+Plug 'tpope/vim-unimpaired'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-rails'
+Plug 'joshdick/onedark.vim'
+Plug 'tpope/vim-endwise'
+Plug 'nordtheme/vim'
+Plug 'w0rp/ale'
+Plug 'jalvesaq/nvim-r'
+Plug 'phanviet/vim-monokai-pro'
+
+
+
+
+call plug#end()
+
+
+"Fundamental Settings:
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1
+set fileformat=unix
+set fileformats=unix,dos,mac
+filetype on
+filetype plugin on
+filetype plugin indent on
+syntax on
+runtime macros/matchit.vim
+set history=200
+
+
+inoremap fd <ESC>
+set hlsearch
+set incsearch
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l> 
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+
+set completeopt=noinsert,menuone,noselect
+
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+
+set shiftwidth=4    " Indents will have a width of 4
+
+set softtabstop=4   " Sets the number of columns for a TAB
+
+set expandtab       " Expand TABs to spaces
+set textwidth=92
+
+                        
+                        
+syntax enable           
+set background=dark     
+colorscheme nord
+ 
+ 
+set hidden
+let mapleader=","
+noremap \ ,
+
+
+map <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+autocmd bufwritepost .vimrc source $MYVIMRC
+autocmd BufRead, *.rb nmap <leader>r :silent !{ruby %}<cr>
+
+cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+
+let R_nvim_wd = 1
+

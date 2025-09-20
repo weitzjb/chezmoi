@@ -1,0 +1,152 @@
+tap "microsoft/mssql-release"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Library for manipulating PNG images
+brew "libpng"
+# Software library to render fonts
+brew "freetype"
+# Vector graphics library with cross-device output support
+brew "cairo"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Implementation of the Unicode BiDi algorithm
+brew "fribidi"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Distributed revision control system
+brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# OpenType text shaping engine
+brew "harfbuzz"
+# GNU utilities for networking
+brew "inetutils"
+# Image manipulation library
+brew "jpeg"
+# TIFF library and utilities
+brew "libtiff"
+# Mac App Store command-line interface
+brew "mas"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Library for command-line editing
+brew "readline"
+# Command-line interface for SQLite
+brew "sqlite"
+# Platform built on V8 to build network applications
+brew "node"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Object-relational database system
+brew "postgresql@14"
+# Python version management
+brew "pyenv"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
+# Software environment for statistical computing
+brew "r", link: false
+# File browser
+brew "ranger"
+# Ruby version manager
+brew "rbenv"
+# Version control system designed to be a better CVS
+brew "subversion"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# General-purpose lossless data-compression library
+brew "zlib"
+# UNIX shell (command interpreter)
+brew "zsh"
+# ODBC Driver for Microsoft(R) SQL Server(R)
+brew "microsoft/mssql-release/msodbcsql18"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Collection of apps and services for photography, design, video, web, and UX
+cask "adobe-creative-cloud"
+# Data backup and storage service
+cask "backblaze"
+# Menu bar icon organiser
+cask "bartender"
+# Databases and SQL IDE
+cask "datagrip"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-source-code-pro"
+# Web browser
+cask "google-chrome"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Automation software
+cask "keyboard-maestro"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Office suite
+cask "microsoft-office"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# Environment for statistical computing and graphics
+cask "r-app"
+# Data science software focusing on R and Python
+cask "rstudio"
+# Video chat, voice call and instant messaging application
+cask "skype"
+# Music streaming service with high fidelity sound and hi-def video quality
+cask "tidal"
+# Open-source code editor
+cask "visual-studio-code"
+# Native desktop client for WhatsApp
+cask "whatsapp"
+# Video communication and virtual meeting platform
+cask "zoom"
+# Collect, organise, cite, and share research sources
+cask "zotero"
+mas "Be Focused Pro", id: 961632517
+mas "Broadcasts", id: 1469995354
+mas "Kindle", id: 302584613
+mas "Magnet", id: 441258766
+mas "PDFScanner", id: 410968114
+mas "Things", id: 904280696
+mas "Unsplash Wallpapers", id: 1284863847
+vscode "13xforever.language-x86-64-assembly"
+vscode "bracketpaircolordlw.bracket-pair-color-dlw"
+vscode "chrischinchilla.vscode-pandoc"
+vscode "esbenp.prettier-vscode"
+vscode "formulahendry.auto-rename-tag"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "james-yu.latex-workshop"
+vscode "mengrbatinov.mssql-extensions-starter-pack"
+vscode "mengrbatinov.mssql-scripts"
+vscode "mengrbatinov.mssql-snippets"
+vscode "mikhail-arkhipov.r"
+vscode "ms-mssql.data-workspace-vscode"
+vscode "ms-mssql.mssql"
+vscode "ms-mssql.sql-bindings-vscode"
+vscode "ms-mssql.sql-database-projects-vscode"
+vscode "ms-python.autopep8"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "notzaki.pandocciter"
+vscode "reditorsupport.r"
+vscode "twxs.cmake"
+vscode "vscodevim.vim"
+vscode "yzhang.markdown-all-in-one"

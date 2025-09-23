@@ -101,8 +101,6 @@ cask "microsoft-teams"
 cask "r-app"
 # Data science software focusing on R and Python
 cask "rstudio"
-# Video chat, voice call and instant messaging application
-cask "skype"
 # Music streaming service with high fidelity sound and hi-def video quality
 cask "tidal"
 # Open-source code editor

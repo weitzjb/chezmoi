@@ -110,6 +110,7 @@ bindkey fd vi-cmd-mode
 # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 alias f='ranger'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias caf1h='caffeinate -dimsu -t 3600'
 alias v='nvim'
 alias ubuntu='ssh james@10.134.137.42'
 alias off='sudo shutdown now'
@@ -128,6 +129,8 @@ key_repeat () {
 
 eval "$(rbenv init - zsh)"
 
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

@@ -144,4 +144,5 @@ export PATH="$HOME/git/scripts:$PATH"
 alias gs='git-sweep.sh'
 
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 

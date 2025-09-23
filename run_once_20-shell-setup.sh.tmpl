@@ -1,0 +1,37 @@
+#!/bin/sh
+set -e
+
+# ---------- oh-my-zsh (non-interactive) ----------
+export RUNZSH=no
+export CHSH=no
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "✔ oh-my-zsh installed"
+else
+  echo "✔ oh-my-zsh already present"
+fi
+
+# ---------- powerlevel10k from GitHub ----------
+if [ ! -d "$HOME/powerlevel10k" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/powerlevel10k"
+  echo "✔ powerlevel10k cloned into ~/powerlevel10k"
+else
+  echo "✔ powerlevel10k already present"
+fi
+
+# Ensure ~/.zshrc sources p10k theme (only once)
+if ! grep -q 'source ~/powerlevel10k/powerlevel10k.zsh-theme' "$HOME/.zshrc" 2>/dev/null; then
+  printf '\nsource ~/powerlevel10k/powerlevel10k.zsh-theme\n' >> "$HOME/.zshrc"
+  echo "✔ Added powerlevel10k source line to ~/.zshrc"
+else
+  echo "✔ ~/.zshrc already sourcing powerlevel10k"
+fi
+
+# ---------- macOS defaults ----------
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
+defaults write -g ApplePressAndHoldEnabled -bool false
+echo "✔ macOS key repeat defaults set (logout/login may be required)"
+
+echo "Done: oh-my-zsh + powerlevel10k + macOS defaults."

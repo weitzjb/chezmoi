@@ -105,6 +105,8 @@ cask "rstudio"
 cask "tidal"
 # Open-source code editor
 cask "visual-studio-code"
+# File manager
+cask "devonthink"
 # Native desktop client for WhatsApp
 cask "whatsapp"
 # Video communication and virtual meeting platform

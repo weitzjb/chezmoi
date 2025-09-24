@@ -1,0 +1,120 @@
+snippet [
+	[${1:label}](${2:location})
+
+snippet ![
+	![${1:label}](${2:location})
+	
+snippet img
+	![${1:label}](${0})
+
+snippet rfull
+	```{r ${1:label}, ${2:options}}
+	${0}
+	```
+
+snippet r
+	```{r ${1:label}}
+	${0}
+	```
+
+snippet rcpp
+	```{r, engine='Rcpp'}
+	#include <Rcpp.h>
+	using namespace Rcpp;
+
+	${0}
+
+snippet twe "Blogdown Tweet Shortcode"
+	`r blogdown::shortcode("tweet", "${1:tweetid}")`
+
+snippet css
+	```{css echo=FALSE}
+	${1:css}
+	```
+
+snippet js
+	```{js}
+	${1:js}
+	```
+
+snippet html:chunk
+	```{html ${1:label}, eval=${2:FALSE}}
+	${0}
+	```
+	
+snippet pkg
+	[${1:package}]{.pkg}
+
+# html snippets
+
+snippet html:basic
+	<!DOCTYPE html>
+	<html lang="en">
+	  <head>
+	    <meta charset="utf-8" />
+	    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	    <title>${1:title}</title>
+	  </head>
+	  <body>
+	    $0
+	  </body>
+	</html>
+
+snippet div.
+	<div class="$1">$0</div>
+
+snippet div
+	<div>$0</div>
+
+snippet div#
+	<div id="$1"></div>
+
+snippet span.
+	<span class="$1">$0</span>
+
+snippet span
+	<span>$0</span>
+
+snippet span#
+	<span id="$1"></span>
+
+snippet kbd
+	<kbd>${1:key}</kbd>
+
+snippet details
+	<details><summary>${1:summary}</summary>
+
+	${2:stuff}
+	</details>
+	
+snippet base
+	---
+	title: "${1:title}"
+	author: "${2:author}"
+	date: `r format(Sys.time(), '%d %B, %Y')`
+	output:
+		html_document:
+			df_print: paged
+		word_document: default
+		pdf_document: default
+	---
+
+	```{r setup, include=FALSE}
+	source("~/Dropbox/Rstudio/unitdata/scripts/newExtractSQL.R")
+
+	knitr::opts_chunk\$set(echo = FALSE, error = F, message = F, warning = F, dpi = 300)
+
+	startDate <- as.Date("${3:startDate}")
+	endDate <- as.Date("${4:endDate}")
+	```
+	
+
+# ------------------------------------------------------------
+# moustache
+# ------------------------------------------------------------
+snippet msss "{{moustache}} section"
+	{{#$0}}
+	{{$0}}
+	{{/$0}}

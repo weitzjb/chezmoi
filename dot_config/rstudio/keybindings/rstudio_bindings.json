@@ -1,0 +1,9 @@
+{
+    "nextTab": "Cmd+]",
+    "lastTab": "Ctrl+Shift+F12",
+    "previousTab": "Cmd+[",
+    "activateSource": "Cmd+1",
+    "activateConsole": "Cmd+2",
+    "activateTerminal": "Cmd+3",
+    "goToDefinition": "Shift+Cmd+F2"
+}

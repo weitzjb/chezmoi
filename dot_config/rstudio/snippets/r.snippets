@@ -1,0 +1,285 @@
+
+# ------------------------------------------------------------
+# scripting
+# ------------------------------------------------------------
+
+snippet hb "exectuable script"
+	#!/usr/bin/env Rscript
+
+snippet lib
+	library(${1:package})
+
+snippet tdv
+	library(tidyverse)
+
+snippet tidyverse
+	library(ggplot2)
+	library(tibble)
+	library(tidyr)
+	library(readr)
+	library(purrr)
+	library(dplyr)
+	library(stringr)
+	library(forcats)
+	library(lubridate)
+	library(glue)
+	library(fs)
+
+snippet req
+	require(${1:package})
+
+snippet reqns
+	if (!requireNamespace("${1:pkg}", quietly = TRUE)) {
+	  stop("`${1:pkg}` is required: install.packages('${1:pkg}')")
+	}
+
+snippet ifreqns
+	if (requireNamespace("${1:pkg}", quietly = TRUE)) {
+	  ${2:code}
+	}
+
+snippet reqgh
+	if (!requireNamespace("${1:pkg}", quietly = TRUE)) {
+	  stop("`${1:pkg}` is required: devtools::install_github('${2:user}/${1:pkg}')")
+	}
+
+snippet knkt
+	%>%
+	knitr::kable()
+
+snippet docoptr
+	'usage:
+	  ${1:script.R} cmd [-f --arg=<msg>]
+	  ${1:script.R} -h | --help
+
+	options:
+	 -f           Flag
+	 --arg=<msg>  Argument with value
+	 -h --help    Show this screen' -> doc
+
+	library(docopt)
+	opts <- docopt(doc)
+
+snippet sg
+	setGeneric("${1:generic}", function(${2:x, ...}) {
+	  standardGeneric("${1:generic}")
+	})
+
+snippet sm
+	setMethod("${1:generic}", ${2:class}, function(${2:x, ...}) {
+	  ${0}
+	})
+
+snippet sc
+	setClass("${1:Class}", slots = c(${2:name = "type"}))
+
+snippet s3generic
+	${1:generic} <- function(x, ...) UseMethod("${1:generic}", x)
+
+	${1:generic}.${2:method} <- function(x, ...) {
+	  ${0}
+	}
+
+# ------------------------------------------------------------
+# operators
+# ------------------------------------------------------------
+
+snippet op:default
+	# use y if x is.null
+	`%||%` <- function(x, y) if (is.null(x)) y else x
+
+snippet op:notnull
+	# use y if x is not null (otherwise NULL)
+	`%??%` <- function(x, y) if (!is.null(x)) y
+
+snippet op:notnullish
+	# use y if x is not null(ish) (otherwise NULL)
+	`%??%` <- function(x, y) if (!is.null(x) && x != "") y
+
+# ------------------------------------------------------------
+# general
+# ------------------------------------------------------------
+
+snippet aa
+	${1:var} <- ${1:var} %>%
+	  ${0}
+
+snippet qq
+	${1:var} %>%
+	  ${0}
+
+snippet aq
+	${1:newvar} <- ${2:df} %>%
+	  ${0}
+
+snippet prettydate
+	strftime(Sys.time(), "%A, %b %d, %Y")
+
+snippet tts
+	strftime(Sys.time(), "${1:%F %T}")
+
+snippet hdr
+	# ---- ${1:header} ----
+
+snippet a=
+	${1:opt} = ${1:opt}
+
+snippet zz
+	${1:var} <- ${1:var} %||% ${0}
+
+snippet hh
+	here::here("${1:path}")
+
+snippet ie
+	if (${1:cond}) ${2:true} else ${3:false}
+
+# ------------------------------------------------------------
+# ggplot2
+# ------------------------------------------------------------
+
+snippet gg "ggplot generic"
+	ggplot(${1:data}, aes(${2:aes})) + ${0}
+
+snippet gl "ggplot line"
+	ggplot(${1:data}, aes(${2:x}, ${3:y})) + geom_line()${0}
+
+snippet gp "ggplot point"
+	ggplot(${1:data}, aes(${2:x}, ${3:y})) + geom_point()${0}
+
+snippet gs "ggsave()"
+	ggsave("${1:filename}.pdf", width = ${2:6}, height = ${3:6})${0}
+
+snippet ge "geom_*"
+	geom_${1:point}(${0})
+
+snippet ggeb "element_blank"
+	element_blank($0)
+
+snippet gger "element_rect"
+	element_rect($0)
+
+snippet gget "element_text"
+	element_text($0)
+
+snippet ggel "element_line"
+	element_line($0)
+
+# ------------------------------------------------------------
+# dplyr, purrr
+# ------------------------------------------------------------
+snippet br "bind_rows()"
+	bind_rows(${0})
+
+snippet bc "bind_cols()"
+	bind_cols(${0})
+
+snippet jo "*_join"
+	${1:inner}_join(${0})
+
+snippet pmd "purrr::map_dfr()"
+	purrr::map_dfr(${0})
+
+snippet pmdc "purrr::map_dfc()"
+	purrr::map_dfc(${0})
+
+snippet pm "purrr::map()"
+	purrr::map(${0})
+
+snippet pmc "purrr::map_chr()"
+	purrr::map_chr(${0})
+
+snippet pmi "purrr::map_int()"
+	purrr::map_int(${0})
+
+snippet pmb "purrr::map_lgl()"
+	purrr::map_lgl(${0})
+
+snippet pmdb "purrr::map_dbl()"
+	purrr::map_dbl(${0})
+
+# ------------------------------------------------------------
+# rlang
+# ------------------------------------------------------------
+snippet rlquo
+	${1:var} <- rlang::enquo(${1:var})
+	${1:var}_name <- rlang::quo_name(${1:var})
+
+# ------------------------------------------------------------
+# shiny
+# ------------------------------------------------------------
+snippet shinyapp
+	library(shiny)
+
+	ui <- fluidPage(
+	  ${0}
+	)
+
+	server <- function(input, output, session) {
+
+	}
+
+	shinyApp(ui, server)
+
+snippet shinymod
+	${1:name}UI <- function(id) {
+	  ns <- NS(id)
+	  tagList(
+	    ${0}
+	  )
+	}
+
+	${1:name} <- function(input, output, session, ...) {
+	  ns <- session\$ns
+	}
+
+snippet shiny:external
+	options(shiny.launch.browser = .rs.invokeShinyWindowExternal)
+
+snippet shiny:window
+	options(shiny.launch.browser = .rs.invokeShinyWindowViewer)
+
+snippet shiny:pane
+	options(shiny.launch.browser = .rs.invokeShinyPaneViewer)
+
+snippet htmldep
+	htmltools::htmlDependency(
+	  name = "${1:name}",
+	  version = "${2:1.2.3}",
+	  package = "${3:pkg}",
+	  src = "${4:src}",
+	  script = "${5:script.js}",
+	  stylesheet = "${0:styles.css}",
+	  all_files = FALSE
+	)
+
+# ------------------------------------------------------------
+# testthat
+# ------------------------------------------------------------
+snippet ttht "Create test"
+	test_that("${1:description}", {
+	  $0
+	})
+
+snippet ttef "Expect false"
+	expect_false(${1:${VISUAL}})
+
+snippet ttet "Expect true"
+	expect_true(${1:${VISUAL}})
+
+snippet ttee "Expect equal"
+	expect_equal(${1:${VISUAL}}, $2)
+
+snippet ttdt "Describe that"
+	describe("${1:function}", {
+	  it("${2:action}", {
+	    $0
+	  })
+	})
+	
+snippet data
+	source("/Users/james/git/unitdata/scripts/newExtractSQL.R")
+	
+snippet dates
+	startDate <- as.POSIXct("$1 00:00:00")
+	endDate <- as.POSIXct("$2 00:00:00")
+	$0

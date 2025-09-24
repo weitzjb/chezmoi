@@ -1,0 +1,22 @@
+{
+    "initial_working_directory": "~",
+    "posix_terminal_shell": "bash",
+    "editor_keybindings": "vim",
+    "execution_behavior": "paragraph",
+    "document_author": "Dr James Weitz",
+    "jobs_tab_visibility": "shown",
+    "save_workspace": "never",
+    "load_workspace": false,
+    "rmd_auto_date": true,
+    "save_files_before_build": true,
+    "global_theme": "alternate",
+    "font_size_points": 12,
+    "help_font_size_points": 12,
+    "num_spaces_for_tab": 4,
+    "auto_detect_indentation": true,
+    "editor_theme": "Nord Polar Night Aurora {rsthemes}",
+    "default_project_location": "~/RStudio",
+    "new_proj_git_init": true,
+    "show_hidden_files": true,
+    "source_with_echo": true
+}

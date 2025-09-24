@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Only on macOS + arm64 (Apple silicon)
+[[ "$(uname -s)" == "Darwin" ]] || exit 0
+[[ "$(uname -m)" == "arm64" ]] || exit 0
+
+# Skip if Rosetta already present
+if /usr/bin/arch -x86_64 /usr/bin/true >/dev/null 2>&1; then
+  echo "Rosetta already available. Skipping."
+  exit 0
+fi
+
+echo "Installing Rosetta 2..."
+sudo /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+echo "Rosetta installed."
+

@@ -102,7 +102,7 @@ cask "r-app"
 # Data science software focusing on R and Python
 cask "rstudio"
 # Music streaming service with high fidelity sound and hi-def video quality
-cask "tidal"
+cask "spotify"
 # Open-source code editor
 cask "visual-studio-code"
 # File manager

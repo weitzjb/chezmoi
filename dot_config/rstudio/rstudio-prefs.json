@@ -18,5 +18,6 @@
     "default_project_location": "~/RStudio",
     "new_proj_git_init": true,
     "show_hidden_files": true,
-    "source_with_echo": true
+    "reformat_on_save": true,
+    "code_formatter": "styler"
 }

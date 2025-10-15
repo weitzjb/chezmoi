@@ -113,6 +113,8 @@ cask "whatsapp"
 cask "zoom"
 # Collect, organise, cite, and share research sources
 cask "zotero"
+# Install full latex 
+cask "mactex"
 mas "Be Focused Pro", id: 961632517
 mas "Broadcasts", id: 1469995354
 mas "Kindle", id: 302584613

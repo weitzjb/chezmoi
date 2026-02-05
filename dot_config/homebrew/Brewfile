@@ -79,8 +79,6 @@ cask "1password"
 cask "adobe-creative-cloud"
 # Data backup and storage service
 cask "backblaze"
-# Menu bar icon organiser
-cask "bartender"
 # Databases and SQL IDE
 cask "datagrip"
 cask "font-sauce-code-pro-nerd-font"
@@ -101,8 +99,6 @@ cask "microsoft-teams"
 cask "r-app"
 # Data science software focusing on R and Python
 cask "rstudio"
-# Music streaming service with high fidelity sound and hi-def video quality
-cask "spotify"
 # Open-source code editor
 cask "visual-studio-code"
 # File manager

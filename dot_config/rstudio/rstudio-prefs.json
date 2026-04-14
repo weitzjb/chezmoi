@@ -1,6 +1,6 @@
 {
     "initial_working_directory": "~",
-    "posix_terminal_shell": "bash",
+    "posix_terminal_shell": "zsh",
     "editor_keybindings": "vim",
     "execution_behavior": "paragraph",
     "document_author": "Dr James Weitz",
@@ -19,5 +19,6 @@
     "new_proj_git_init": true,
     "show_hidden_files": true,
     "reformat_on_save": true,
-    "code_formatter": "styler"
+    "code_formatter": "styler",
+    "source_with_echo": true
 }

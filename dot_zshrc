@@ -149,3 +149,4 @@ alias gs='git-sweep.sh'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+export PICU_DB_PASSWORD=REDACTED

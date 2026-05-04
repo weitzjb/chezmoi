@@ -119,7 +119,7 @@ if [[ -n "$INSIDE_EMACS" ]]; then
 else
     export TERM="xterm-256color"
 fi
-export PATH="/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/usr/local/opt/gettext/bin:$PATH"
+export PATH="/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/usr/local/opt/gettext/bin:$HOME/.config/emacs/bin:$PATH"
 
 key_repeat () {
     defaults write -g InitialKeyRepeat -int 10
@@ -149,4 +149,19 @@ alias gs='git-sweep.sh'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-export PICU_DB_PASSWORD=REDACTED
+# ── Databases ─────────────────────────────────────────────────────
+# Credentials live in 1Password; template at ~/.db-secrets.env.tpl
+if [[ -z "$PGPASSWORD" ]]; then
+  eval "$(op inject -i ~/.db-secrets.env.tpl 2>/dev/null)"
+fi
+
+export PATH="/opt/homebrew/opt/mssql-tools18/bin:$PATH"
+
+# Harlequin (visual TUI) — run in its own tmux window
+medicus() { harlequin -a postgres --host "${PGHOST}" --port "${PGPORT}" --dbname "${PGDATABASE}" -U "${PGUSER}" --password "${PGPASSWORD}" "$@"; }
+carevue() { harlequin -a odbc "Driver=ODBC Driver 18 for SQL Server;Server=tcp:${CV_SQL_SERVER},1433;Database=${CV_SQL_DB};UID=${CV_SQL_UID};PWD=${CV_SQL_PWD};Encrypt=yes;TrustServerCertificate=yes" "$@"; }
+
+# Quick SQL CLI — psql uses PG* env vars automatically; usql for both
+msql() { usql "pg://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}" "$@"; }
+csql() { usql "sqlserver://${CV_SQL_UID}:${CV_SQL_PWD}@${CV_SQL_SERVER}:1433?database=${CV_SQL_DB}&TrustServerCertificate=true" "$@"; }
+# ─────────────────────────────────────────────────────────────────

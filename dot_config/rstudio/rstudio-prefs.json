@@ -20,5 +20,40 @@
     "show_hidden_files": true,
     "reformat_on_save": true,
     "code_formatter": "styler",
-    "source_with_echo": true
+    "source_with_echo": true,
+    "panes": {
+        "quadrants": [
+            "Source",
+            "Console",
+            "TabSet1",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer",
+            "Presentations"
+        ],
+        "hiddenTabSet": [],
+        "console_left_on_top": false,
+        "console_right_on_top": true,
+        "additional_source_columns": 0,
+        "sidebar": [
+            "Chat"
+        ],
+        "sidebar_visible": false,
+        "sidebar_location": "right"
+    },
+    "visual_markdown_editing_max_content_width": 1200
 }

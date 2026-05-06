@@ -15,7 +15,7 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 | `~/git/picuDashboard` | Python, Plotly Dash, PostgreSQL, Docker | Clinical dashboard for PICU metrics (census, bundle compliance, PICaNet) |
 | `~/git/reports` | R, Quarto, renv | Annual CIC report pipeline: extracts KPIs from Medicus/CareVue and renders Word docs |
 | `~/git/unitdata` | R, Quarto, renv | Multi-project clinical data pipeline; active project is PICaNet State of Nations (`Projects/cec2026/`) |
-| `~/git/dot` | Shell, Emacs Lisp | Dotfiles |
+| `~/.local/share/chezmoi` | chezmoi | Dotfiles — GitHub: `git@github.com:weitzjb/chezmoi.git` |
 | `~/git/scripts` | R, Shell, AppleScript | One-off utility scripts |
 
 ## Key relationships between projects
@@ -33,7 +33,7 @@ All clinical databases require VPN. Key sources:
 - **CareVue / ICIP** — SQL Server (`CISReportingDB`, `dbo` schema); real-time charting data (VAP/CLABSI bundle compliance, assessments)
 - **PICaNet** — PostgreSQL; national audit data
 
-Credentials are in `~/.Renviron` (R projects) or `.env` files (Docker projects). Never committed.
+Credentials are in 1Password, injected into the shell at startup via `op inject -i ~/.db-secrets.env.tpl`. R projects inherit them from the shell; Docker projects use `.env` files (gitignored). Never committed.
 
 **ICIP_HOST for Docker:** Docker bridge cannot resolve hospital DNS. Use the IP address, not the hostname.
 

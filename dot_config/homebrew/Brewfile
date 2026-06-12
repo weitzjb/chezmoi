@@ -69,6 +69,8 @@ brew "zlib"
 brew "zsh"
 # ODBC Driver for Microsoft(R) SQL Server(R)
 brew "microsoft/mssql-release/msodbcsql18"
+# Command-line interface for 1Password
+brew "1password-cli"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # AI coding assistant CLI
@@ -77,8 +79,8 @@ cask "claude-code"
 cask "claude"
 # Data backup and storage service
 cask "backblaze"
-# Databases and SQL IDE
-cask "datagrip"
+# Python IDE
+cask "pycharm"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-source-code-pro"
 # Web browser

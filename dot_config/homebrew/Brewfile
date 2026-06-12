@@ -106,7 +106,6 @@ cask "zotero"
 # Install full latex
 cask "mactex"
 mas "Be Focused Pro", id: 961632517
-mas "Broadcasts", id: 1469995354
 mas "Kindle", id: 302584613
 mas "Magnet", id: 441258766
 mas "PDFScanner", id: 410968114

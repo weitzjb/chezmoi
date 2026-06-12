@@ -21,6 +21,8 @@ brew "xz"
 brew "git"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
+# GitHub CLI
+brew "gh"
 # OpenType text shaping engine
 brew "harfbuzz"
 # GNU utilities for networking
@@ -45,18 +47,12 @@ brew "pandoc"
 brew "pkgconf"
 # Object-relational database system
 brew "postgresql@14"
-# Python version management
-brew "pyenv"
-# Pyenv plugin to manage virtualenv
-brew "pyenv-virtualenv"
 # Software environment for statistical computing
 brew "r", link: false
 # File browser
 brew "ranger"
-# Ruby version manager
-brew "rbenv"
-# Version control system designed to be a better CVS
-brew "subversion"
+# Terminal multiplexer
+brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # ODBC 3 connectivity for UNIX
@@ -65,8 +61,8 @@ brew "unixodbc"
 brew "vim"
 # Internet file retriever
 brew "wget"
-# JavaScript package manager
-brew "yarn"
+# Extremely fast Python package installer and resolver
+brew "uv"
 # General-purpose lossless data-compression library
 brew "zlib"
 # UNIX shell (command interpreter)
@@ -75,8 +71,6 @@ brew "zsh"
 brew "microsoft/mssql-release/msodbcsql18"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
-# Collection of apps and services for photography, design, video, web, and UX
-cask "adobe-creative-cloud"
 # Data backup and storage service
 cask "backblaze"
 # Databases and SQL IDE
@@ -85,8 +79,8 @@ cask "font-sauce-code-pro-nerd-font"
 cask "font-source-code-pro"
 # Web browser
 cask "google-chrome"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
+# Terminal emulator
+cask "ghostty"
 # Automation software
 cask "keyboard-maestro"
 # Provides updates to various Microsoft products
@@ -109,7 +103,7 @@ cask "whatsapp"
 cask "zoom"
 # Collect, organise, cite, and share research sources
 cask "zotero"
-# Install full latex 
+# Install full latex
 cask "mactex"
 mas "Be Focused Pro", id: 961632517
 mas "Broadcasts", id: 1469995354
@@ -118,7 +112,6 @@ mas "Magnet", id: 441258766
 mas "PDFScanner", id: 410968114
 mas "Things", id: 904280696
 mas "Unsplash Wallpapers", id: 1284863847
-vscode "13xforever.language-x86-64-assembly"
 vscode "bracketpaircolordlw.bracket-pair-color-dlw"
 vscode "chrischinchilla.vscode-pandoc"
 vscode "esbenp.prettier-vscode"
@@ -139,12 +132,7 @@ vscode "ms-python.debugpy"
 vscode "ms-python.isort"
 vscode "ms-python.python"
 vscode "ms-python.vscode-python-envs"
-vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpptools"
-vscode "ms-vscode.cpptools-extension-pack"
-vscode "ms-vscode.cpptools-themes"
 vscode "notzaki.pandocciter"
 vscode "reditorsupport.r"
-vscode "twxs.cmake"
 vscode "vscodevim.vim"
 vscode "yzhang.markdown-all-in-one"

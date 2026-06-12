@@ -71,6 +71,10 @@ brew "zsh"
 brew "microsoft/mssql-release/msodbcsql18"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
+# AI coding assistant CLI
+cask "claude-code"
+# Claude AI desktop app
+cask "claude"
 # Data backup and storage service
 cask "backblaze"
 # Databases and SQL IDE

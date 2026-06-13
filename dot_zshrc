@@ -74,12 +74,14 @@ medicus() {
     --port "${PGPORT}" \
     --dbname "${PGDATABASE}" \
     -U "${PGUSER}" \
-    --password "${PGPASSWORD}" "$@"
+    --password "${PGPASSWORD}" \
+    --read-only "$@"
 }
 
 carevue() {
   dbload || return
   harlequin -a odbc \
+    --read-only \
     "Driver=ODBC Driver 18 for SQL Server;Server=tcp:${CV_SQL_SERVER},1433;Database=${CV_SQL_DB};UID=${CV_SQL_UID};PWD=${CV_SQL_PWD};Encrypt=yes;TrustServerCertificate=yes" "$@"
 }
 

@@ -1,0 +1,6 @@
+default_profile = "default"
+
+[profiles.default]
+theme = "tokyo-night"
+limit = 10_000
+show_docs = false

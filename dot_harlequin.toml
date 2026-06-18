@@ -6,55 +6,52 @@ limit = 10_000
 show_docs = false
 keymap_name = ["vscode", "no_fkeys"]
 
-[[keymaps]]
-name = "no_fkeys"
-
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+h"
 action = "help"
 key_display = "^h"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+2"
 action = "focus_query_editor"
 key_display = "^2"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+5"
 action = "focus_results_viewer"
 key_display = "^5"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+6"
 action = "focus_data_catalog"
 key_display = "^6"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+8"
 action = "show_query_history"
 key_display = "^8"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+9"
 action = "toggle_sidebar"
 key_display = "^9"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+0"
 action = "toggle_full_screen"
 key_display = "^0"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+d"
 action = "show_debug_info"
 key_display = "^d"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+4"
 action = "code_editor.format_buffer"
 key_display = "^4"
 
-[[keymaps.bindings]]
+[[keymaps.no_fkeys]]
 keys = "ctrl+3"
 action = "code_editor.find_next"
 key_display = "^3"

@@ -23,6 +23,8 @@ brew "git"
 brew "git-filter-repo"
 # GitHub CLI
 brew "gh"
+# Terminal SQL client
+brew "harlequin"
 # OpenType text shaping engine
 brew "harfbuzz"
 # GNU utilities for networking
@@ -107,6 +109,8 @@ cask "devonthink"
 cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
+# Multiplayer code editor
+cask "zed"
 # Collect, organise, cite, and share research sources
 cask "zotero"
 # Install full latex

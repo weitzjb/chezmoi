@@ -94,6 +94,16 @@ csql() {
   dbload || return
   usql "sqlserver://${CV_SQL_UID}:${CV_SQL_PWD}@${CV_SQL_SERVER}:1433?database=${CV_SQL_DB}&TrustServerCertificate=true" "$@"
 }
+
+warehouse() {
+  harlequin -a postgres \
+    --host localhost \
+    --port 5433 \
+    --dbname picu_dw \
+    -U picu_user \
+    --password changeme \
+    --read-only "$@"
+}
 # ─────────────────────────────────────────────────────────────────
 
 # ── Powerlevel10k ─────────────────────────────────────────────────

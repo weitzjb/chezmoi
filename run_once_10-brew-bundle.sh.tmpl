@@ -3,11 +3,14 @@ set -e
 
 # Install Homebrew if missing
 if ! command -v brew >/dev/null 2>&1; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || true
 fi
 
 brew update || true
+
+# Accept Microsoft EULA non-interactively (msodbcsql18)
+export HOMEBREW_ACCEPT_EULA=Y
 
 # If you use Mac App Store apps via 'mas', ensure you’re signed in first.
 # (You can comment this out if you prefer to sign in manually.)

@@ -2,5 +2,4 @@
 .config/nvim/site/pack/
 .config/nvim/node_modules/
 .config/nvim/plugin/packer_compiled.lua
-.config/nvim/lazy-lock.json
 

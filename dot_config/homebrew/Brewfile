@@ -25,22 +25,30 @@ brew "libtiff"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 
-# Manage your dotfiles across multiple diverse machines, securely
-brew "chezmoi"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # Distributed revision control system
 brew "git"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
 # GitHub command-line tool
 brew "gh"
+# Render markdown on the CLI
+brew "glow"
 # Easy, fast, and beautiful database client for the terminal
 brew "harlequin"
 # GNU utilities for networking
 brew "inetutils"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -49,6 +57,8 @@ brew "neovim"
 brew "node"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
 # Object-relational database system
@@ -57,10 +67,14 @@ brew "postgresql@14"
 brew "r", link: false
 # File browser
 brew "ranger"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Markup-based typesetting system
+brew "typst"
 # ODBC 3 connectivity for UNIX
 brew "unixodbc"
 # Extremely fast Python package installer and resolver, written in Rust
@@ -81,16 +95,12 @@ brew "microsoft/mssql-release/msodbcsql18", trusted: true
 cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
+# Memory training application
+cask "anki"
 # Data backup and storage service
 cask "backblaze"
-# OpenAI's official ChatGPT desktop app
-cask "chatgpt"
-# Anthropic's official Claude AI desktop app
-cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
-# Databases and SQL IDE
-cask "datagrip"
 # Collect, organise, edit and annotate documents
 cask "devonthink"
 # App to build and share containerised applications and microservices
@@ -102,8 +112,12 @@ cask "font-source-code-pro"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
+# Note-taking tool for visual learning
+cask "heptabase"
 # Automation software
 cask "keyboard-maestro"
+# Free cross-platform office suite, fresh version
+cask "libreoffice"
 # Full TeX Live distribution with GUI applications
 cask "mactex"
 # Provides updates to various Microsoft products
@@ -112,22 +126,18 @@ cask "microsoft-auto-update"
 cask "microsoft-office"
 # Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
+# Scientific and technical publishing system built on Pandoc
+cask "quarto"
 # Environment for statistical computing and graphics
 cask "r-app"
 # Data science software focusing on R and Python
 cask "rstudio"
 # Transcription software
 cask "transcribe"
-# Open-source code editor
-cask "visual-studio-code"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-# Multiplayer code editor
-cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
-# Collect, organise, cite, and share research sources
-cask "zotero"
 
 mas "Be Focused Pro", id: 961632517
 mas "Kindle", id: 302584613
@@ -135,28 +145,3 @@ mas "Magnet", id: 441258766
 mas "PDFScanner", id: 410968114
 mas "Things", id: 904280696
 mas "Unsplash Wallpapers", id: 1284863847
-
-vscode "bracketpaircolordlw.bracket-pair-color-dlw"
-vscode "chrischinchilla.vscode-pandoc"
-vscode "esbenp.prettier-vscode"
-vscode "formulahendry.auto-rename-tag"
-vscode "james-yu.latex-workshop"
-vscode "mengrbatinov.mssql-extensions-starter-pack"
-vscode "mengrbatinov.mssql-scripts"
-vscode "mengrbatinov.mssql-snippets"
-vscode "ms-dotnettools.vscode-dotnet-runtime"
-vscode "ms-mssql.data-workspace-vscode"
-vscode "ms-mssql.mssql"
-vscode "ms-mssql.sql-bindings-vscode"
-vscode "ms-mssql.sql-database-projects-vscode"
-vscode "ms-python.autopep8"
-vscode "ms-python.debugpy"
-vscode "ms-python.isort"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
-vscode "notzaki.pandocciter"
-vscode "reditorsupport.r"
-vscode "reditorsupport.r-syntax"
-vscode "vscodevim.vim"
-vscode "yzhang.markdown-all-in-one"

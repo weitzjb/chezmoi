@@ -26,6 +26,7 @@
 [user]
 	name = James Weitz
 	email = weitzjb@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICzMJYBLVLzmBSemuHCkS3VroCNGIYF4mb2/eF3Y7oyv
 [core]
 	excludesfile = /Users/james/.gitignore
 	autocrlf = input
@@ -35,3 +36,9 @@
     defaultBranch = main
 [pull]
 	rebase = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true

@@ -13,7 +13,7 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 | Directory | Stack | Purpose |
 |-----------|-------|---------|
 | `~/git/drugCalc2` | Python, FastAPI, WeasyPrint, PostgreSQL, Docker | Drug calculator with database-backed admin UI — current Python version |
-| `~/git/picuDashbaord` | Python, Plotly Dash, PostgreSQL, Docker | Clinical dashboard for PICU metrics (census, bundle compliance, PICaNet) — note typo in dir name |
+| `~/git/picuDashboard` | Python, Plotly Dash, PostgreSQL, Docker | Clinical dashboard for PICU metrics (census, bundle compliance, PICaNet) |
 | `~/git/knowledge-pipeline` | Python, Anthropic API, AppleScript/JXA | AI-assisted knowledge management: processes DEVONthink inbox items (tagging, library writes, appraisal entries) and generates NHS SARD appraisal narratives at year-end |
 | `~/git/scripts` | R, Shell, AppleScript | One-off utility scripts |
 
@@ -24,13 +24,13 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 | `~/git/drugCalc` | Superseded | TypeScript/Node.js drug calculator; simpler than `drugCalc2`; remote on Bitbucket |
 | `~/git/drug-calculator` | Superseded | Older Python/Flask drug calculator; superseded by `drugCalc2` |
 | `~/git/unitdata` | Winding down | R/Quarto clinical data pipeline; PICaNet State of Nations work; now on GitHub |
-| `~/git/reports` | Winding down | R/Quarto annual CIC report pipeline; reporting moving into `picuDashbaord` |
+| `~/git/reports` | Winding down | R/Quarto annual CIC report pipeline; reporting moving into `picuDashboard` |
 | `~/git/dot` | Historical | Old dotfiles (Shell, Emacs Lisp); replaced by chezmoi |
 
 ## Key relationships between projects
 
 - `drugCalc2` (Python/FastAPI) is the active drug calculator. `drugCalc` (TypeScript, Bitbucket) and `drug-calculator` (Flask) are older versions kept for reference only.
-- `picuDashbaord` connects to a separate local PostgreSQL data warehouse populated by its own ETL layer; it does **not** read directly from Medicus or CareVue. Reporting and dashboard functionality from `reports` and `unitdata` is migrating here.
+- `picuDashboard` connects to a separate local PostgreSQL data warehouse populated by its own ETL layer; it does **not** read directly from Medicus or CareVue. Reporting and dashboard functionality from `reports` and `unitdata` is migrating here.
 - `knowledge-pipeline` writes to `~/notes/library/` (plain markdown, indexed by DEVONthink) and `~/notes/appraisal/` (NHS SARD appraisal master doc). It calls the Anthropic API directly — keep the key in `.env` only, not exported to the shell.
 - Dotfiles are managed by **chezmoi** (separate workflow); `~/git/dot` is a historical repo kept for reference.
 
@@ -52,4 +52,4 @@ Credentials are in 1Password, injected into the shell at startup via `op inject 
 
 ## Docker projects
 
-`drugCalc2` and `picuDashbaord` run entirely via `docker compose up`. There is no separate build step for either. Use `docker compose down -v` to reset the database.
+`drugCalc2` and `picuDashboard` run entirely via `docker compose up`. There is no separate build step for either. Use `docker compose down -v` to reset the database.

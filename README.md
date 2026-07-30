@@ -13,9 +13,9 @@
 - [ ] Sign in to Mac App Store (needed before chezmoi runs `mas`)
 
 ## chezmoi
-- [ ] Run: `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply weitzjb`
-- [ ] Sign in to 1Password
-- [ ] Run: `chezmoi apply` (renders db-secrets template)
+- [ ] Run: `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply weitzjb` (public repo, no auth needed — this installs Homebrew, 1Password, and everything else in the Brewfile)
+- [ ] Sign in to 1Password, now that it's installed (enables SSH agent — GitHub key is already stored there, no need to generate a new one)
+- [ ] Run: `chezmoi apply` (renders db-secrets template via 1Password)
 
 ## Restore Claude
 - [ ] Copy `~/Desktop/claude-backup/projects/` → `~/.claude/projects/`
@@ -23,8 +23,7 @@
 - [ ] Copy `~/Desktop/claude-backup/history.jsonl` → `~/.claude/`
 
 ## Git repos
-- [ ] Generate new SSH key, add to GitHub
-- [ ] Clone active repos: `picuDashbaord`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `unitdata`
+- [ ] Clone active repos: `picuDashboard`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `unitdata`
 
 ## DEVONthink
 - [ ] Wait for CloudKit sync to complete
@@ -32,8 +31,11 @@
 
 ## Docker projects
 - [ ] `drugCalc2`: copy `.env.example` → `.env`, fill in `POSTGRES_PASSWORD`, `SECRET_KEY`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`
-- [ ] `picuDashbaord`: copy `.env.example` → `.env`, fill in DB credentials from 1Password, generate new `FLASK_SECRET_KEY` and password hashes (see comments in `.env.example`)
-- [ ] `docker compose up` in `drugCalc2` and `picuDashbaord` to rebuild
+- [ ] `picuDashboard`: copy `.env.example` → `.env`, fill in DB credentials from 1Password, generate new `FLASK_SECRET_KEY` and password hashes (see comments in `.env.example`)
+- [ ] `docker compose up` in `drugCalc2` and `picuDashboard` to rebuild
+
+## VPN
+- [ ] Configure Cisco AnyConnect manually — host `vpn.oxnet.nhs.uk`, group `OxNET` (no longer chezmoi-managed, deliberately)
 
 ## Other users
 - [ ] Create user accounts for Ben, Jo, Tom

@@ -1,0 +1,7 @@
+#compdef jazz-practice
+
+_jazz_practice_completion() {
+  eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _JAZZ_PRACTICE_COMPLETE=complete_zsh jazz-practice)
+}
+
+compdef _jazz_practice_completion jazz-practice

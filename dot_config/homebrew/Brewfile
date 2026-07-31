@@ -97,8 +97,6 @@ cask "1password"
 cask "1password-cli"
 # Memory training application
 cask "anki"
-# Data backup and storage service
-cask "backblaze"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Collect, organise, edit and annotate documents

@@ -37,6 +37,9 @@
 ## VPN
 - [ ] Configure Cisco AnyConnect manually — host `vpn.oxnet.nhs.uk`, group `OxNET` (no longer chezmoi-managed, deliberately)
 
+## Backup
+- [ ] Install Backblaze manually via direct download from backblaze.com (no longer a Homebrew cask — installs more reliably direct)
+
 ## Other users
 - [ ] Create user accounts for Ben, Jo, Tom
 - [ ] Log in as Jo → unzip `jo-documents.zip` into her Documents

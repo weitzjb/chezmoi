@@ -32,7 +32,9 @@ fi
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
 defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 echo "✔ macOS key repeat defaults set (logout/login may be required)"
+echo "✔ Function keys set to standard F1/F2/etc behaviour (use fn to access media keys; logout/login may be required)"
 
 # ---------- macOS defaults: Magic Mouse ----------
 # Secondary click on (default = right side), scroll speed maxed, app-switch/Mission Control gestures off

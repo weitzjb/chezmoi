@@ -23,7 +23,7 @@
 - [ ] Copy `~/Desktop/claude-backup/history.jsonl` → `~/.claude/`
 
 ## Git repos
-- [ ] Clone active repos: `picuDashboard`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `unitdata`
+- [ ] Clone active repos: `picuDashboard`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `jazzPractice`, `WPOAssistant`, `unitdata`
 
 ## DEVONthink
 - [ ] Wait for CloudKit sync to complete
@@ -42,4 +42,4 @@
 - [ ] Log in as Jo → unzip `jo-documents.zip` into her Documents
 
 ## R projects
-- [ ] Run `renv::restore()` in `unitdata` and `reports` on first open
+- [ ] Run `renv::restore()` in `unitdata` on first open

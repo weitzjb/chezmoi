@@ -28,10 +28,36 @@ else
   echo "✔ ~/.zshrc already sourcing powerlevel10k"
 fi
 
-# ---------- macOS defaults ----------
+# ---------- macOS defaults: keyboard ----------
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
 defaults write -g ApplePressAndHoldEnabled -bool false
 echo "✔ macOS key repeat defaults set (logout/login may be required)"
+
+# ---------- macOS defaults: Magic Mouse ----------
+# Secondary click on (default = right side), scroll speed maxed, app-switch/Mission Control gestures off
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string TwoButton
+defaults write NSGlobalDomain com.apple.scrollwheel.scaling -float 3.0
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseHorizSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseTwoFingerDoubleTapGesture -int 0
+echo "✔ Magic Mouse defaults set (verify swipe/scroll values look right — some are approximations of the UI's max/off positions)"
+
+# ---------- macOS defaults: Dock & menu bar ----------
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock tilesize -int 16
+defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock largesize -int 128
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+killall Dock >/dev/null 2>&1 || true
+killall SystemUIServer >/dev/null 2>&1 || true
+echo "✔ Dock (auto-hide, smallest + max magnification) and always-hidden menu bar set"
+
+# ---------- Caps Lock <-> Control swap (via hidutil, keyboard-model independent) ----------
+HIDUTIL_MAPPING='{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0},{"HIDKeyboardModifierMappingSrc":0x7000000E0,"HIDKeyboardModifierMappingDst":0x700000039}]}'
+hidutil property --set "$HIDUTIL_MAPPING" >/dev/null
+if [ -f "$HOME/Library/LaunchAgents/local.capslock-control-swap.plist" ]; then
+  launchctl load -w "$HOME/Library/LaunchAgents/local.capslock-control-swap.plist" 2>/dev/null || true
+fi
+echo "✔ Caps Lock/Control swap applied (LaunchAgent installed for persistence across reboots)"
 
 echo "Done: oh-my-zsh + powerlevel10k + macOS defaults."

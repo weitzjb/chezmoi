@@ -119,3 +119,18 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+
+# jazz-practice: 5 min ear training / 10 min focus / 15 min background
+alias jz-ear='jazz-practice practice --domain intervals --midi --minutes 5'
+alias jz-focus='jazz-practice focus --minutes 10'
+alias jz-background='jazz-practice practice --minutes 15'
+
+# Chains all three jazz-practice blocks with a pause in between so you can
+# reposition/catch your breath before the next block starts.
+jz-practice() {
+  jazz-practice practice --domain intervals --midi --minutes 5 || return
+  read "?Ear training done -- press enter for focus block..."
+  jazz-practice focus --minutes 10 || return
+  read "?Focus done -- press enter for background block..."
+  jazz-practice practice --minutes 15
+}

@@ -126,11 +126,18 @@ alias jz-focus='jazz-practice focus --minutes 10'
 alias jz-background='jazz-practice practice --minutes 15'
 
 # Chains all three jazz-practice blocks with a pause in between so you can
-# reposition/catch your breath before the next block starts.
+# reposition/catch your breath before the next block starts. The extra
+# `sleep 2` gives CoreMIDI a moment to release the previous block's MIDI
+# client before the next process opens a new one -- back-to-back client
+# creation is a known source of intermittent "error creating OS-X MIDI
+# client object" crashes (thestk/rtmidi#155), not something app code can
+# fully prevent.
 jz-practice() {
   jazz-practice practice --domain intervals --midi --minutes 5 || return
   read "?Ear training done -- press enter for focus block..."
+  sleep 2
   jazz-practice focus --minutes 10 || return
   read "?Focus done -- press enter for background block..."
+  sleep 2
   jazz-practice practice --minutes 15
 }

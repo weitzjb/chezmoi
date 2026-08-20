@@ -121,9 +121,13 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 
 # jazz-practice: 5 min ear training / 10 min focus / 15 min background
-alias jz-ear='jazz-practice practice --domain intervals --midi --minutes 5'
-alias jz-focus='jazz-practice focus --minutes 10'
-alias jz-background='jazz-practice practice --minutes 15'
+# `caffeinate -disu` keeps the display/screensaver from kicking in while
+# hands are on the piano, not the keyboard/mouse -- the assertion is held
+# only for the duration of the wrapped command and releases automatically
+# when it exits.
+alias jz-ear='caffeinate -disu jazz-practice practice --domain intervals --midi --minutes 5'
+alias jz-focus='caffeinate -disu jazz-practice focus --minutes 10'
+alias jz-background='caffeinate -disu jazz-practice practice --minutes 15'
 
 # Chains all three jazz-practice blocks with a pause in between so you can
 # reposition/catch your breath before the next block starts. The extra
@@ -133,11 +137,11 @@ alias jz-background='jazz-practice practice --minutes 15'
 # client object" crashes (thestk/rtmidi#155), not something app code can
 # fully prevent.
 jz-practice() {
-  jazz-practice practice --domain intervals --midi --minutes 5 || return
+  caffeinate -disu jazz-practice practice --domain intervals --midi --minutes 5 || return
   read "?Ear training done -- press enter for focus block..."
   sleep 2
-  jazz-practice focus --minutes 10 || return
+  caffeinate -disu jazz-practice focus --minutes 10 || return
   read "?Focus done -- press enter for background block..."
   sleep 2
-  jazz-practice practice --minutes 15
+  caffeinate -disu jazz-practice practice --minutes 15
 }

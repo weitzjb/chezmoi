@@ -107,8 +107,8 @@ warehouse() {
 # ─────────────────────────────────────────────────────────────────
 
 # ── WPO Assistant ─────────────────────────────────────────────────
-alias wpo-digest='cd ~/git/WPOAssistant && source .venv/bin/activate && python digest.py --send'
-alias wpo-preview='cd ~/git/WPOAssistant && source .venv/bin/activate && python digest.py'
+alias wpo-digest='cd ~/git/dailyAssistant && source .venv/bin/activate && python digest.py --send'
+alias wpo-preview='cd ~/git/dailyAssistant && source .venv/bin/activate && python digest.py'
 # ─────────────────────────────────────────────────────────────────
 
 # ── Powerlevel10k ─────────────────────────────────────────────────

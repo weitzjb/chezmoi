@@ -14,10 +14,10 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 |-----------|-------|---------|
 | `~/git/drugCalc2` | Python, FastAPI, WeasyPrint, PostgreSQL, Docker | Drug calculator with database-backed admin UI — current Python version |
 | `~/git/picuDashboard` | Python, Plotly Dash, PostgreSQL, Docker | Clinical dashboard for PICU metrics (census, bundle compliance, PICaNet) |
-| `~/git/knowledge-pipeline` | Python, Anthropic API, AppleScript/JXA | AI-assisted knowledge management: processes DEVONthink inbox items (tagging, library writes, appraisal entries) and generates NHS SARD appraisal narratives at year-end |
+| `~/git/appraisalPipeline` | Python, OpenAI API, AppleScript/JXA | Processes DEVONthink inbox items (appraisal-section tagging) and generates NHS SARD appraisal/CPD narratives at year-end |
 | `~/git/scripts` | R, Shell, AppleScript | One-off utility scripts |
 | `~/git/jazzPractice` | Python | Personal adaptive drill tool for jazz-piano practice (intervals, triads, YAML-authored content based on *The Jazz Piano Book*) |
-| `~/git/WPOAssistant` | Python | CLI for running the Wokingham Philharmonic Orchestra — reads/writes Google Sheets, sends email via Gmail, generates PDFs via pandoc + Typst |
+| `~/git/dailyAssistant` | Python | James's general working seat (daily task triage, ad hoc work via MCP) — also home to a WPO-specific CLI: reads/writes Google Sheets, sends email via Gmail, generates PDFs via pandoc + Typst |
 
 **Redundant / historical (kept for reference):**
 
@@ -29,7 +29,7 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 
 - `drugCalc2` (Python/FastAPI) is the active drug calculator.
 - `picuDashboard` connects to a separate local PostgreSQL data warehouse populated by its own ETL layer; it does **not** read directly from Medicus or CareVue. Reporting and dashboard functionality from `unitdata` is migrating here.
-- `knowledge-pipeline` writes to `~/notes/library/` (plain markdown, indexed by DEVONthink) and `~/notes/appraisal/` (NHS SARD appraisal master doc). It calls the Anthropic API directly — keep the key in `.env` only, not exported to the shell.
+- `appraisalPipeline` writes to `~/Documents/appraisal/` (NHS SARD appraisal master doc, PDP/scope-of-work files). It calls the OpenAI API directly — keep the key in `.env` only, not exported to the shell.
 
 ## Databases
 

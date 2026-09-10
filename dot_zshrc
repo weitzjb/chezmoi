@@ -120,27 +120,41 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
 
-# jazz-practice: 5 min ear training / 10 min focus / 15 min background
-# `caffeinate -disu` keeps the display/screensaver from kicking in while
-# hands are on the piano, not the keyboard/mouse -- the assertion is held
-# only for the duration of the wrapped command and releases automatically
-# when it exits.
+# jazz-practice: 5 min ear training / one 5 min focus block per domain
+# currently at `focus` status (up to 3, per the focus_cap) / 15 min
+# background. `caffeinate -disu` keeps the display/screensaver from
+# kicking in while hands are on the piano, not the keyboard/mouse -- the
+# assertion is held only for the duration of the wrapped command and
+# releases automatically when it exits.
 alias jz-ear='caffeinate -disu jazz-practice practice --domain intervals --midi --minutes 5'
-alias jz-focus='caffeinate -disu jazz-practice focus --minutes 10'
 alias jz-background='caffeinate -disu jazz-practice practice --minutes 15'
 
-# Chains all three jazz-practice blocks with a pause in between so you can
-# reposition/catch your breath before the next block starts. The extra
-# `sleep 2` gives CoreMIDI a moment to release the previous block's MIDI
-# client before the next process opens a new one -- back-to-back client
-# creation is a known source of intermittent "error creating OS-X MIDI
-# client object" crashes (thestk/rtmidi#155), not something app code can
-# fully prevent.
+# Chains the jazz-practice blocks with a pause in between so you can
+# reposition/catch your breath before the next block starts. Replaced the
+# old single random 10-min `jazz-practice focus` block on 2026-09-10 with
+# one 5-min block per domain currently at `focus` status, so every domain
+# James is actively working through gets dedicated attention each session
+# instead of one domain drawn at random. The extra `sleep 2` gives CoreMIDI
+# a moment to release the previous block's MIDI client before the next
+# process opens a new one -- back-to-back client creation is a known
+# source of intermittent "error creating OS-X MIDI client object" crashes
+# (thestk/rtmidi#155), not something app code can fully prevent.
 jz-practice() {
   caffeinate -disu jazz-practice practice --domain intervals --midi --minutes 5 || return
-  read "?Ear training done -- press enter for focus block..."
-  sleep 2
-  caffeinate -disu jazz-practice focus --minutes 10 || return
+
+  local -a focus_domains
+  focus_domains=("${(@f)$(jazz-practice curriculum status | awk '$2 == "focus" {print $1}')}")
+
+  local domain prev_label i=0
+  for domain in "${focus_domains[@]}"; do
+    (( i++ ))
+    prev_label="Ear training done"
+    (( i > 1 )) && prev_label="Focus block $((i - 1)) done"
+    read "?${prev_label} -- press enter for focus block $i ($domain)..."
+    sleep 2
+    caffeinate -disu jazz-practice practice --domain "$domain" --focus --minutes 5 || return
+  done
+
   read "?Focus done -- press enter for background block..."
   sleep 2
   caffeinate -disu jazz-practice practice --minutes 15

@@ -116,8 +116,6 @@ cask "heptabase"
 cask "keyboard-maestro"
 # Free cross-platform office suite, fresh version
 cask "libreoffice"
-# Full TeX Live distribution with GUI applications
-cask "mactex"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
 # Office suite

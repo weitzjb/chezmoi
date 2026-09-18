@@ -24,7 +24,6 @@ bindkey fd vi-cmd-mode
 alias f='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias caf1='caffeinate -dimsu -t 3600'
 alias v='nvim'
-alias ubuntu='ssh james@10.134.137.42'
 alias off='sudo shutdown now'
 alias gs='git-sweep.sh'
 

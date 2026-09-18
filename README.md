@@ -15,7 +15,7 @@
 ## chezmoi
 - [ ] Run (do **not** prefix with `sudo` — Homebrew's installer refuses to run as root and will prompt for your password itself when needed): `sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply weitzjb/chezmoi` (public repo, no auth needed — this installs Homebrew, 1Password, and everything else in the Brewfile)
 - [ ] Sign in to 1Password, now that it's installed (enables SSH agent — GitHub key is already stored there, no need to generate a new one)
-- [ ] Run: `chezmoi apply` (renders db-secrets template via 1Password)
+- [ ] Run: `chezmoi apply` (renders the 1Password-backed env template)
 
 ## Git repos
 - [ ] Clone active repos: `picuDashboard`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `jazzPractice`, `WPOAssistant`, `unitdata`

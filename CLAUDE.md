@@ -39,7 +39,7 @@ All clinical databases require VPN. Key sources:
 - **CareVue / ICIP** — SQL Server (`CISReportingDB`, `dbo` schema); real-time charting data (VAP/CLABSI bundle compliance, assessments)
 - **PICaNet** — PostgreSQL; national audit data
 
-Credentials are in 1Password, injected into the shell at startup via `op inject -i ~/.db-secrets.env.tpl`. R projects inherit them from the shell; Docker projects use `.env` files (gitignored). Never committed.
+Credentials are in 1Password, injected into the shell at startup via `op inject -i ~/.workenv.tpl`. R projects inherit them from the shell; Docker projects use `.env` files (gitignored). Never committed.
 
 **ICIP_HOST for Docker:** Docker bridge cannot resolve hospital DNS. Use the IP address, not the hostname.
 

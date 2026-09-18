@@ -49,12 +49,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # ── Databases ─────────────────────────────────────────────────────
-# Credentials live in 1Password; template at ~/.db-secrets.env.tpl
+# Credentials live in 1Password; template at ~/.workenv.tpl
 # Secrets are loaded only when a database command is run.
 
 dbload() {
   if [[ -z "$PGPASSWORD" || -z "$CV_SQL_PWD" ]]; then
-    eval "$(op inject -i ~/.db-secrets.env.tpl)" || {
+    eval "$(op inject -i ~/.workenv.tpl)" || {
       echo "Failed to load database credentials from 1Password." >&2
       return 1
     }

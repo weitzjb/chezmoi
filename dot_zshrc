@@ -123,27 +123,44 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
 
-# jazz-practice: 5 min ear training / one 5 min focus block per domain
-# currently at `focus` status (up to 3, per the focus_cap) / 15 min
-# background. `caffeinate -disu` keeps the display/screensaver from
-# kicking in while hands are on the piano, not the keyboard/mouse -- the
-# assertion is held only for the duration of the wrapped command and
-# releases automatically when it exits.
-alias jz-ear='caffeinate -disu jazz-practice practice --domain intervals --midi --minutes 5'
-alias jz-background='caffeinate -disu jazz-practice practice --minutes 15'
+# jazz-practice: 5 min ear training (typed) / 5 min ear training (MIDI) /
+# one 5 min focus block per domain currently at `focus` status (up to 3,
+# per the focus_cap) / 10 min background -- 35 min total. `caffeinate
+# -disu` keeps the display/screensaver from kicking in while hands are on
+# the piano, not the keyboard/mouse -- the assertion is held only for the
+# duration of the wrapped command and releases automatically when it
+# exits. The two ear blocks (2026-09-22) are each multi-domain sessions in
+# their own right, pooled by grading modality rather than hardcoded to one
+# domain -- `ear-typed` currently only has seventh_chord_ear in it,
+# `ear-midi` currently only has intervals, but either pool picks up a
+# second matching domain automatically the moment one exists, no alias
+# change needed.
+alias jz-ear-typed='caffeinate -disu jazz-practice ear-typed --minutes 5'
+alias jz-ear-midi='caffeinate -disu jazz-practice ear-midi --minutes 5'
+alias jz-background='caffeinate -disu jazz-practice practice --minutes 10'
 
 # Chains the jazz-practice blocks with a pause in between so you can
 # reposition/catch your breath before the next block starts. Replaced the
 # old single random 10-min `jazz-practice focus` block on 2026-09-10 with
 # one 5-min block per domain currently at `focus` status, so every domain
 # James is actively working through gets dedicated attention each session
-# instead of one domain drawn at random. The extra `sleep 2` gives CoreMIDI
-# a moment to release the previous block's MIDI client before the next
-# process opens a new one -- back-to-back client creation is a known
+# instead of one domain drawn at random. Split the single 5-min ear block
+# into ear-typed + ear-midi on 2026-09-22, trimming background from 15 to
+# 10 min to hold the 35-min total steady. The extra `sleep 2` gives
+# CoreMIDI a moment to release the previous block's MIDI client before the
+# next process opens a new one -- back-to-back client creation is a known
 # source of intermittent "error creating OS-X MIDI client object" crashes
 # (thestk/rtmidi#155), not something app code can fully prevent.
+# `read "?prompt"` swapped for `jazz-practice wait-for-pedal "prompt"` on
+# 2026-09-22: same "block until you're ready to continue" behavior (Enter
+# still works), but also accepts a press of the middle/sostenuto pedal, so
+# advancing between blocks doesn't require walking over to the keyboard.
 jz-practice() {
-  caffeinate -disu jazz-practice practice --domain intervals --midi --minutes 5 || return
+  caffeinate -disu jazz-practice ear-typed --minutes 5 || return
+
+  jazz-practice wait-for-pedal "Typed ear training done -- press the middle pedal (or Enter) for MIDI ear training..."
+  sleep 2
+  caffeinate -disu jazz-practice ear-midi --minutes 5 || return
 
   local -a focus_domains
   focus_domains=("${(@f)$(jazz-practice curriculum status | awk '$2 == "focus" {print $1}')}")
@@ -153,12 +170,12 @@ jz-practice() {
     (( i++ ))
     prev_label="Ear training done"
     (( i > 1 )) && prev_label="Focus block $((i - 1)) done"
-    read "?${prev_label} -- press enter for focus block $i ($domain)..."
+    jazz-practice wait-for-pedal "${prev_label} -- press the middle pedal (or Enter) for focus block $i ($domain)..."
     sleep 2
     caffeinate -disu jazz-practice practice --domain "$domain" --focus --minutes 5 || return
   done
 
-  read "?Focus done -- press enter for background block..."
+  jazz-practice wait-for-pedal "Focus done -- press the middle pedal (or Enter) for background block..."
   sleep 2
-  caffeinate -disu jazz-practice practice --minutes 15
+  caffeinate -disu jazz-practice practice --minutes 10
 }

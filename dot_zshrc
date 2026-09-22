@@ -19,6 +19,9 @@ export PATH="/opt/homebrew/opt/mssql-tools18/bin:$HOME/git/scripts:/opt/homebrew
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# jazz-practice: share practice history across machines via iCloud Drive
+export JAZZ_PRACTICE_DB_PATH="$HOME/Library/Mobile Documents/com~apple~CloudDocs/jazz-practice/practice.db"
+
 bindkey fd vi-cmd-mode
 
 alias f='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'

@@ -14,7 +14,7 @@
     "help_font_size_points": 12,
     "num_spaces_for_tab": 4,
     "auto_detect_indentation": true,
-    "default_project_location": "~/RStudio",
+    "default_project_location": "~/data",
     "show_hidden_files": true,
     "reformat_on_save": true,
     "code_formatter": "styler",
@@ -50,8 +50,10 @@
         "sidebar": [
             "Chat"
         ],
-        "sidebar_visible": false,
+        "sidebar_visible": true,
         "sidebar_location": "right"
     },
-    "visual_markdown_editing_max_content_width": 1200
+    "visual_markdown_editing_max_content_width": 1200,
+    "new_proj_git_init": true,
+    "new_proj_use_renv": true
 }

@@ -8,5 +8,35 @@
     "lua-lsp@claude-plugins-official": true
   },
   "promptSuggestionEnabled": false,
-  "theme": "dark-ansi"
+  "theme": "dark-ansi",
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: private (weitzjb/unit-analytics, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: 1Password (via `op` CLI) — used for DB credentials in `R/database.R`; never hardcoded, never written to disk",
+      "**Default / protected branches**: default branch `main`; no classic branch protection listed (rulesets not queryable here — treat `main` as potentially protected by ruleset even though none are listed)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: Trust clinical databases (Medicus, CareVue/ICIP, PICaNet) accessed over VPN, via R/DBI only — no direct network execution by the assistant",
+      "### Source control",
+      "**Source control**: The trusted repo (weitzjb/unit-analytics) and its origin remote (github.com:weitzjb/unit-analytics.git) only",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: Trust SQL Server (ICIP/CareVue, `CISReportingDB`) and Trust PostgreSQL (PICaNet/Medicus) — reachable only via `connect_icip()`/`connect_picanet()` in `R/database.R`; the assistant must never execute queries against them directly",
+      "**Internal package registry**: None configured — package versions managed via `renv`",
+      "### Sensitivity",
+      "**Sensitive data locations & audiences**: Patient-level data of any kind (names, MRNs, DOB, free text, clinical detail); live R session objects/query results; the Trust OneDrive folder referenced by `REPORT_EXPORTS_DIR` (never to be searched, opened, or inferred); `.Renviron`/`.env` files (gitignored, contain no DB credentials by design but out of visibility regardless); `icip-note-extract/` subdirectory has its own stricter, separate data-visibility contract in its own CLAUDE.md — do not assume this file's rules cover it",
+      "**Data retention / declassification**: None configured — aggregate-only reports may be published per project workflow; row-level/identifiable exports only ever go to the Trust OneDrive folder, never into this repo",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: clinical unit analytics software development (R, SQL, Quarto) in the unit-analytics repo",
+      "**Trusted repo**: weitzjb/unit-analytics (private) — working directory and its origin remote only; confidential material (non-PID, non-credential) is fine to commit here, but patient-level data and credentials are never cleared into it regardless of visibility",
+      "**Org-specific CLIs**: None configured — `op` (1Password) CLI used for credential resolution at DB-connection time only, never for reading secrets directly into the session",
+      "**Routine under repo prefix**: routine R/SQL/Quarto authoring under `R/`, `sql/`, `reports/`, `presentations/`, `docs/` is expected; SQL/database execution and R runtime/global-environment inspection are never routine — always declined, per CLAUDE.md"
+    ]
+  }
 }

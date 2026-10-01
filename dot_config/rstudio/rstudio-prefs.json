@@ -55,5 +55,6 @@
     },
     "visual_markdown_editing_max_content_width": 1200,
     "new_proj_git_init": true,
-    "new_proj_use_renv": true
+    "new_proj_use_renv": true,
+    "always_save_history": false
 }

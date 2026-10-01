@@ -10,6 +10,10 @@
   "promptSuggestionEnabled": false,
   "theme": "dark-ansi",
   "autoMode": {
+    "allow": [
+      "$defaults",
+      "Deleting dailyAssistant's docs/*.pdf after delivery is allowed: they are gitignored build artifacts regenerated from the .md source"
+    ],
     "environment": [
       "$defaults",
       "**Organization**: None — single personal user (James Weitz, PICU clinician) on two Macs. Repo-specific rules and data boundaries live in each repo's CLAUDE.md; follow those",
@@ -20,10 +24,7 @@
       "**Network posture**: Trust clinical databases (Medicus, CareVue/ICIP, PICaNet) are reachable only over the Trust VPN, and only through each clinical repo's own connection code as its CLAUDE.md describes",
       "**Sensitive data locations & audiences**: patient-level clinical data of any kind (names, MRNs, DOB, free text, clinical detail) and its identifiable exports — stays within the Trust systems and destinations each clinical repo's CLAUDE.md names, never copied into a repo or anywhere external",
       "**Org-specific CLIs**: chezmoi (dotfiles sync across both Macs); `op` (1Password)"
-    ],
-    "allow": [
-      "$defaults",
-      "Deleting dailyAssistant's docs/*.pdf after delivery is allowed: they are gitignored build artifacts regenerated from the .md source"
     ]
-  }
+  },
+  "model": "sonnet"
 }

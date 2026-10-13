@@ -30,6 +30,7 @@ alias caf1='caffeinate -dimsu -t 3600'
 alias v='nvim'
 alias off='sudo shutdown now'
 alias gs='git-sweep.sh'
+alias ts='tmux attach \; choose-tree -s 2>/dev/null || tmux new'
 
 if [[ -n "$INSIDE_EMACS" ]]; then
     :

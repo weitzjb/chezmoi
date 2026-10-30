@@ -18,3 +18,8 @@ quit-after-last-window-closed = true
 copy-on-select = false
 scrollback-limit = 50000
 confirm-close-surface = false
+
+# Faint science-fiction skyline
+background-image = /Users/james/.config/ghostty/backgrounds/scifi-city.png
+background-image-opacity = 0.12
+background-image-fit = cover

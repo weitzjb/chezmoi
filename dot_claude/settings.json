@@ -1,4 +1,5 @@
 {
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash /Users/james/.claude/statusline-command.sh"
@@ -12,7 +13,8 @@
   "autoMode": {
     "allow": [
       "$defaults",
-      "Deleting dailyAssistant's docs/*.pdf after delivery is allowed: they are gitignored build artifacts regenerated from the .md source"
+      "Deleting dailyAssistant's docs/*.pdf after delivery is allowed: they are gitignored build artifacts regenerated from the .md source",
+      "Deploying wpoAdmin to its live server over `ssh wpo` is allowed when James has said yes to that specific deploy in the current conversation (his standing rule is an explicit yes each time, and `deploy/backup.sh` first when the deploy has a migration). The deploy is `git pull`, `docker compose up -d --build`, `manage.py migrate`, plus read-only checks (`docker compose ps/logs`, curl of the site). Never restore, overwrite or dump a database onto that server, never run raw SQL there, never touch its `.env`, and never run anything that deletes data"
     ],
     "environment": [
       "$defaults",
@@ -23,8 +25,38 @@
       "**Secrets management**: 1Password (`op` CLI and the 1Password SSH agent), resolved at connection time and never read into the session or written to disk; per-repo `.env`, `.Renviron`, `credentials.json`, `token.json` files are gitignored, never committed, never displayed",
       "**Network posture**: Trust clinical databases (Medicus, CareVue/ICIP, PICaNet) are reachable only over the Trust VPN, and only through each clinical repo's own connection code as its CLAUDE.md describes",
       "**Sensitive data locations & audiences**: patient-level clinical data of any kind (names, MRNs, DOB, free text, clinical detail) and its identifiable exports — stays within the Trust systems and destinations each clinical repo's CLAUDE.md names, never copied into a repo or anywhere external",
-      "**Org-specific CLIs**: chezmoi (dotfiles sync across both Macs); `op` (1Password)"
+      "**Org-specific CLIs**: chezmoi (dotfiles sync across both Macs); `op` (1Password)",
+      "**wpoAdmin live server**: a Hetzner VPS in Helsinki reached with `ssh wpo` (James's own; it runs the Wokingham Philharmonic Orchestra committee site and holds real member data). Deploys, backups and the restore runbook are in ~/git/wpoAdmin/DEPLOY.md",
+      "### Org-wide",
+      "**Organization**: None configured — this repo (wpoAdmin) belongs to James Weitz personally; it is a committee admin app for the Wokingham Philharmonic Orchestra, not an org deployment",
+      "**Cloud provider(s)**: Hetzner (single CPX12 VPS in Helsinki, reached via `ssh wpo`, hosting the live site at admin.wokinghamphilharmonic.org)",
+      "**Repository visibility**: private (github.com/weitzjb/wpoAdmin — confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: `.env` (gitignored, never committed, server holds real values injected at deploy time only); the age backup private key never passes through Claude — James decrypts/restores himself from 1Password",
+      "**Default / protected branches**: default branch `main`; no branch protection rules listed and rulesets not queryable here — treat `main` as unprotected-by-tooling and rely on the stated human-approval rule for deploys",
+      "**CI/CD deploy targets**: the wpoAdmin live server only (Hetzner VPS via `ssh wpo`), and only `git pull` / `docker compose up -d --build` / `manage.py migrate` plus read-only checks — only ever with James's explicit yes for that specific deploy, each time; `deploy/backup.sh` first when a migration is involved; never restore, overwrite or dump a database onto it, never raw SQL there, never touch its `.env`",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: this repo (github.com/weitzjb/wpoAdmin) and its origin remote only",
+      "**Trusted internal domains**: admin.wokinghamphilharmonic.org (the live wpoAdmin site; the only host contacted in this project's recent usage)",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: the wpoAdmin live server — Hetzner CPX12 VPS in Helsinki, reached via `ssh wpo`, serving admin.wokinghamphilharmonic.org; its database is the real/production data",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: real member/financial data (names, contact details, subs/payment records, under-18 consent register entries) — lives only in the live server's database and the gitignored `import_data/` folder, never committed to the repo; shared only with the committee (cleared audience) and only via the app's own export/email tools; GDPR document text lives in the database, not the repo",
+      "**Data retention / declassification**: per CLAUDE.md decisions — lapsed members' details removed 2 years after they leave; subscription and payment records kept 6 years",
+      "**Sensitive remote targets**: the wpoAdmin production server/database (admin.wokinghamphilharmonic.org) and any namespace/host/container whose name carries `prod` or `production` as a whole word or segment (e.g. `docker-compose.prod.yml`, `config/settings/prod.py`)",
+      "**Protected deployment namespaces / environments**: the wpoAdmin live server deployment (requires James's explicit per-deploy yes) and anything under `docker-compose.prod.yml` / `config/settings/prod.py`",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development — building and operating wpoAdmin, a committee admin app for a volunteer orchestra; ad hoc data edits against real member data go through the Django ORM in a container shell, never raw SQL",
+      "**Trusted repo**: github.com/weitzjb/wpoAdmin (this repo) and its origin remote — private; may become public later, so no personal names, addresses, booking detail or real member/financial data may ever be committed, even though it's currently private",
+      "**Org-specific CLIs**: None configured for this project (user-level CLIs like chezmoi/op are out of scope for this project's recon)",
+      "Routine ad hoc Django-shell data edits under `docker compose exec web python manage.py shell` against dev or prod, always through the ORM, are a normal/expected workflow for this project per CLAUDE.md"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Running `docker compose exec web python manage.py migrate` or `--force-recreate` against the live wpoAdmin server (ssh wpo) without James's explicit per-deploy yes stated in the conversation",
+      "Any `ssh wpo` command that touches the server's `.env`, runs raw SQL, or dumps/restores/overwrites the server's database"
     ]
-  },
-  "model": "sonnet"
+  }
 }

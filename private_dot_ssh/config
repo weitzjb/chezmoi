@@ -5,3 +5,9 @@ Host github.com
 
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+Host wpo
+  HostName 37.27.149.245
+  User deploy
+  IdentityFile ~/.ssh/wpo_admin.pub
+  IdentitiesOnly yes

@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # ── Go / PATH ─────────────────────────────────────────────────────
 export GOPATH="${HOME}/.go"
 export GOROOT="/opt/homebrew/opt/go/libexec"
-export PATH="/opt/homebrew/opt/mssql-tools18/bin:$HOME/git/scripts:/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/opt/homebrew/opt/gettext/bin:$HOME/.config/emacs/bin:/usr/local/opt/make/libexec/gnubin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="/opt/homebrew/opt/mssql-tools18/bin:$HOME/git/dailyAssistant/scripts:/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/opt/homebrew/opt/gettext/bin:$HOME/.config/emacs/bin:/usr/local/opt/make/libexec/gnubin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
 # ─────────────────────────────────────────────────────────────────
 
 export EDITOR="nvim"

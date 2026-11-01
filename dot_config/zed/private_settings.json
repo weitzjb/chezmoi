@@ -7,11 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "limit_content_width": false
+  },
   "agent_servers": {
     "codex-acp": {
       "type": "registry"
     },
     "claude-acp": {
+      "default_config_options": {
+        "mode": "acceptEdits"
+      },
       "type": "registry"
     }
   },
@@ -27,9 +33,12 @@
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
+  "agent_ui_font_size": 18,
+  "agent_buffer_font_size": 17,
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "auto_install_extensions": {
+    "applescript": true,
     "catppuccin": true,
     "cobalt2": true,
     "cobalt2x2-theme": true,

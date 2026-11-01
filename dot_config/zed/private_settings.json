@@ -27,6 +27,15 @@
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "auto_install_extensions": {
+    "catppuccin": true,
+    "cobalt2": true,
+    "cobalt2x2-theme": true,
+    "codebabel-ztheme-dark": true,
+    "html": true,
+    "macos-classic": true,
+    "neon-comfy-soft-themes": true,
+    "oxocarbon": true,
+    "sergio-tech-code-black-theme": true,
     "tokyo-night": true
   },
   "theme": "Tokyo Night Storm",

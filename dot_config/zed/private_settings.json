@@ -14,6 +14,10 @@
     "codex-acp": {
       "type": "registry"
     },
+    "claude-dbenv": {
+      "type": "custom",
+      "command": "/Users/james/git/dailyAssistant/scripts/agent-with-dbenv"
+    },
     "claude-acp": {
       "default_config_options": {
         "mode": "acceptEdits"

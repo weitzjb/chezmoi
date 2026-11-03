@@ -50,7 +50,7 @@
         "sidebar": [
             "Chat"
         ],
-        "sidebar_visible": true,
+        "sidebar_visible": false,
         "sidebar_location": "right"
     },
     "visual_markdown_editing_max_content_width": 1200,

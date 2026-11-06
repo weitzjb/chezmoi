@@ -1,0 +1,23 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+{{ if (get . "journalWatchScheduler" | default false) -}}
+repo="$HOME/git/dailyAssistant"
+if [ ! -d "$repo/.git" ]; then
+    mkdir -p "$HOME/git"
+    git clone git@github.com:weitzjb/dailyAssistant.git "$repo"
+fi
+if [ ! -f "$repo/scripts/journalwatch/setup.sh" ]; then
+    echo 'Pull dailyAssistant, then rerun chezmoi apply to enable Journal Watch.' >&2
+    exit 1
+fi
+sh "$repo/scripts/journalwatch/setup.sh" enable
+{{ else -}}
+label=uk.org.jamesweitz.picujournalwatch
+domain="gui/$(id -u)"
+if launchctl print "$domain/$label" >/dev/null 2>&1; then
+    launchctl bootout "$domain/$label"
+fi
+rm -f "$HOME/Library/LaunchAgents/$label.plist"
+{{ end -}}
+{{ end -}}

@@ -1,0 +1,3 @@
+{{- $journalWatch := promptBoolOnce . "journalWatchScheduler" "Enable PICU Journal Watch emails on this Mac?" false -}}
+[data]
+    journalWatchScheduler = {{ $journalWatch }}

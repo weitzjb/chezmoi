@@ -40,3 +40,20 @@
 
 ## R projects
 - [ ] Run `renv::restore()` in `unitdata` on first open
+
+## Optional PICU Journal Watch scheduler
+
+During `chezmoi init`, answer **no on the MacBook**, **yes on the Mini** to
+“Enable PICU Journal Watch emails on this Mac?”. The answer is stored locally,
+not shared between machines. Run `chezmoi apply` to install/enable or disable
+the daily 09:00 LaunchAgent. No email is sent by setup itself.
+
+Enabled setup clones dailyAssistant if missing (requires GitHub SSH through
+1Password), and uses Homebrew Python without a virtualenv. On a fresh install,
+sign into 1Password then rerun apply if cloning was unavailable. Configure personal
+Gmail in Apple Mail and approve Mail automation. Existing delivery history is
+preserved; otherwise the public initial collection baseline is installed.
+
+For existing machines, run `chezmoi init` once after updating to record the answer.
+To change it: `chezmoi edit-config`, change `journalWatchScheduler` under `[data]`,
+then `chezmoi apply`. Keep it enabled on only one Mac.

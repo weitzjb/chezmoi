@@ -18,7 +18,7 @@
 - [ ] Run: `chezmoi apply` (renders the 1Password-backed env template)
 
 ## Git repos
-- [ ] Clone active repos: `picuData`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `jazzPractice`, `WPOAssistant`, `unitdata`
+- [ ] Clone all repos from `weitzjb` into `~/git/`: `dotclaude`, `dailyAssistant`, `picuData`, `drugCalc2`, `appraisalPipeline`, `hcidTraining`, `wpoAdmin`, `jazz-practice` (`dotclaude` first — `~/.claude/skills` links to it)
 
 ## DEVONthink
 - [ ] Wait for CloudKit sync to complete
@@ -37,9 +37,6 @@
 
 ## Other users
 - [ ] Create user accounts for Ben, Jo, Tom
-
-## R projects
-- [ ] Run `renv::restore()` in `unitdata` on first open
 
 ## Optional PICU Journal Watch scheduler
 

@@ -26,4 +26,13 @@
       "k": ["vim::Up", { "display_lines": true }]
     },
   },
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+      "j": "markdown::ScrollDown",
+      "k": "markdown::ScrollUp",
+      "ctrl-d": "markdown::ScrollPageDown",
+      "ctrl-u": "markdown::ScrollPageUp"
+    },
+  },
 ]

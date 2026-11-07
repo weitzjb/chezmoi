@@ -18,7 +18,7 @@
 - [ ] Run: `chezmoi apply` (renders the 1Password-backed env template)
 
 ## Git repos
-- [ ] Clone active repos: `picuDashboard`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `jazzPractice`, `WPOAssistant`, `unitdata`
+- [ ] Clone active repos: `picuData`, `drugCalc2`, `knowledge-pipeline`, `scripts`, `jazzPractice`, `WPOAssistant`, `unitdata`
 
 ## DEVONthink
 - [ ] Wait for CloudKit sync to complete
@@ -26,8 +26,8 @@
 
 ## Docker projects
 - [ ] `drugCalc2`: copy `.env.example` → `.env`, fill in `POSTGRES_PASSWORD`, `SECRET_KEY`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`
-- [ ] `picuDashboard`: copy `.env.example` → `.env`, fill in DB credentials from 1Password, generate new `FLASK_SECRET_KEY` and password hashes (see comments in `.env.example`)
-- [ ] `docker compose up` in `drugCalc2` and `picuDashboard` to rebuild
+- [ ] `picuData`: copy `.env.example` → `.env`, fill in DB credentials from 1Password, generate new `FLASK_SECRET_KEY` and password hashes (see comments in `.env.example`)
+- [ ] `docker compose up` in `drugCalc2` and `picuData` to rebuild
 
 ## VPN
 - [ ] Configure Cisco AnyConnect manually — see 1Password for host/group (no longer chezmoi-managed, deliberately)

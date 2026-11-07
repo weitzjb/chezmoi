@@ -13,11 +13,15 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 | Directory | Stack | Purpose |
 |-----------|-------|---------|
 | `~/git/drugCalc2` | Python, FastAPI, WeasyPrint, PostgreSQL, Docker | Drug calculator with database-backed admin UI — current Python version |
-| `~/git/picuData` | Python, Plotly Dash, PostgreSQL, Docker | Clinical dashboard for PICU metrics (census, bundle compliance, PICaNet) |
+| `~/git/picuData` | Python, Plotly Dash, PostgreSQL, Docker | PICU clinical data platform (renamed from `picuDashboard`): ETL + warehouse, Dash dashboard (census, bundle compliance, PICaNet), reports, and source-system docs in `docs/sources/` |
 | `~/git/appraisalPipeline` | Python, OpenAI API, AppleScript/JXA | Processes DEVONthink inbox items (appraisal-section tagging) and generates NHS SARD appraisal/CPD narratives at year-end |
-| `~/git/scripts` | R, Shell, AppleScript | One-off utility scripts |
-| `~/git/jazzPractice` | Python | Personal adaptive drill tool for jazz-piano practice (intervals, triads, YAML-authored content based on *The Jazz Piano Book*) |
-| `~/git/dailyAssistant` | Python | James's general working seat (daily task triage, ad hoc work via MCP) — also home to a WPO-specific CLI: reads/writes Google Sheets, sends email via Gmail, generates PDFs via pandoc + Typst |
+| `~/git/hcidTraining` | Python, FastAPI, SQLAlchemy, PostgreSQL, Docker | Internal web app tracking HCID e-learning, fit-testing and practical training compliance for PICU staff |
+| `~/git/wpoAdmin` | Python, Django, Docker, Caddy | Committee-only admin app for the Wokingham Philharmonic Orchestra (members, availability, subscriptions, action log) with audit history |
+| `~/git/jazz-practice` | Python | Personal adaptive drill tool for jazz-piano practice (intervals, triads, YAML-authored content based on *The Jazz Piano Book*) |
+| `~/git/dailyAssistant` | Python, Shell | James's general working seat (daily task triage, ad hoc work via MCP) — also home to the WPO Google Sheets/Gmail CLI, markdown→PDF docs, and the former `~/git/scripts` utilities (now `scripts/`, including journalwatch) |
+| `~/git/dotclaude` | Markdown | Personal Claude Code and Codex skills (`sync-repos`, `journal-club`) synced across computers |
+
+Dotfiles live in a separate public repo, `weitzjb/chezmoi`, with its source at `~/.local/share/chezmoi` (not under `~/git/`). This file is managed from it — edit the chezmoi source, not `~/CLAUDE.md`.
 
 **Retired (Nov 2026):** `unitdata`, `unit-analytics`, `clinicalDbDocs`, `icipExport`, `picu-ai-repository` and `dotemacs` have been deleted from GitHub and are no longer cloned under `~/git/`; they are backed up outside GitHub. Source-system documentation from `clinicalDbDocs`/`unit-analytics` now lives in `~/git/picuData/docs/sources/`. Don't expect those repos to exist.
 

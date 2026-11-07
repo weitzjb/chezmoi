@@ -3,3 +3,4 @@
 .config/nvim/node_modules/
 .config/nvim/plugin/packer_compiled.lua
 
+.config/zed/prompts/**/lock.mdb

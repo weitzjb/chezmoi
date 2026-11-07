@@ -23,7 +23,7 @@
     },
     "claude-acp": {
       "default_config_options": {
-        "mode": "plan"
+        "mode": "acceptEdits"
       },
       "type": "registry"
     }

@@ -19,16 +19,12 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 | `~/git/jazzPractice` | Python | Personal adaptive drill tool for jazz-piano practice (intervals, triads, YAML-authored content based on *The Jazz Piano Book*) |
 | `~/git/dailyAssistant` | Python | James's general working seat (daily task triage, ad hoc work via MCP) — also home to a WPO-specific CLI: reads/writes Google Sheets, sends email via Gmail, generates PDFs via pandoc + Typst |
 
-**Redundant / historical (kept for reference):**
-
-| Directory | Status | Notes |
-|-----------|--------|-------|
-| `~/git/unitdata` | Winding down | R/Quarto clinical data pipeline; PICaNet State of Nations work; now on GitHub |
+**Retired (Nov 2026):** `unitdata`, `unit-analytics`, `clinicalDbDocs`, `icipExport`, `picu-ai-repository` and `dotemacs` have been deleted from GitHub and are no longer cloned under `~/git/`; they are backed up outside GitHub. Source-system documentation from `clinicalDbDocs`/`unit-analytics` now lives in `~/git/picuData/docs/sources/`. Don't expect those repos to exist.
 
 ## Key relationships between projects
 
 - `drugCalc2` (Python/FastAPI) is the active drug calculator.
-- `picuData` connects to a separate local PostgreSQL data warehouse populated by its own ETL layer; it does **not** read directly from Medicus or CareVue. Reporting and dashboard functionality from `unitdata` is migrating here.
+- `picuData` connects to a separate local PostgreSQL data warehouse populated by its own ETL layer; it does **not** read directly from Medicus or CareVue. Reporting and dashboard functionality from the retired `unitdata` repo has moved here; source-system docs are in `docs/sources/`.
 - `appraisalPipeline` writes to `~/Documents/appraisal/` (NHS SARD appraisal master doc, PDP/scope-of-work files). It calls the OpenAI API directly — keep the key in `.env` only, not exported to the shell.
 
 ## Databases
@@ -39,13 +35,9 @@ All clinical databases require VPN. Key sources:
 - **CareVue / ICIP** — SQL Server (`CISReportingDB`, `dbo` schema); real-time charting data (VAP/CLABSI bundle compliance, assessments)
 - **PICaNet** — PostgreSQL; national audit data
 
-Credentials are in 1Password, injected into the shell at startup via `op inject -i ~/.workenv.tpl`. R projects inherit them from the shell; Docker projects use `.env` files (gitignored). Never committed.
+Credentials are in 1Password, injected into the shell at startup via `op inject -i ~/.workenv.tpl`. Docker projects use `.env` files (gitignored). Never committed.
 
 **ICIP_HOST for Docker:** Docker bridge cannot resolve hospital DNS. Use the IP address, not the hostname.
-
-## R environment notes
-
-`unitdata` uses `renv`. Always run `renv::restore()` on a fresh clone. Render Quarto documents from the **project root** — rendering from a subdirectory breaks `here()`. Don't add `library()` calls for packages already loaded by `startup.R` (double-loading compiled packages can segfault on macOS).
 
 ## Docker projects
 

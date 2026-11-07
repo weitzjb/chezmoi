@@ -15,12 +15,15 @@
       "type": "registry"
     },
     "claude-dbenv": {
+      "default_config_options": {
+        "mode": "plan"
+      },
       "type": "custom",
       "command": "/Users/james/git/dailyAssistant/scripts/agent-with-dbenv"
     },
     "claude-acp": {
       "default_config_options": {
-        "mode": "acceptEdits"
+        "mode": "plan"
       },
       "type": "registry"
     }

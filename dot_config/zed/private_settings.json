@@ -16,7 +16,7 @@
     },
     "claude-dbenv": {
       "default_config_options": {
-        "mode": "plan"
+        "mode": "bypassPermissions"
       },
       "type": "custom",
       "command": "/Users/james/git/dailyAssistant/scripts/agent-with-dbenv"

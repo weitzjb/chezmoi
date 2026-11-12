@@ -63,12 +63,18 @@ brew "pipx"
 brew "pkgconf"
 # Object-relational database system
 brew "postgresql@14"
+# Static type checker for Python
+brew "pyright"
 # Software environment for statistical computing
 brew "r", link: false
 # File browser
 brew "ranger"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Extremely fast Python linter, written in Rust
+brew "ruff"
+# SQL linter and auto-formatter for Humans
+brew "sqlfluff"
 # Terminal multiplexer
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)

@@ -1,9 +1,9 @@
 {
-  "model": "sonnet",
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "DISABLE_FEEDBACK_COMMAND": "1"
   },
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash /Users/james/.claude/statusline-command.sh"
@@ -19,6 +19,11 @@
       "$defaults",
       "Deleting dailyAssistant's docs/*.pdf after delivery is allowed: they are gitignored build artifacts regenerated from the .md source",
       "Deploying wpoAdmin to its live server over `ssh wpo` is allowed when James has said yes to that specific deploy in the current conversation (his standing rule is an explicit yes each time, and `deploy/backup.sh` first when the deploy has a migration). The deploy is `git pull`, `docker compose up -d --build`, `manage.py migrate`, plus read-only checks (`docker compose ps/logs`, curl of the site). Never restore, overwrite or dump a database onto that server, never run raw SQL there, never touch its `.env`, and never run anything that deletes data"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Running `docker compose exec web python manage.py migrate` or `--force-recreate` against the live wpoAdmin server (ssh wpo) without James's explicit per-deploy yes stated in the conversation",
+      "Any `ssh wpo` command that touches the server's `.env`, runs raw SQL, or dumps/restores/overwrites the server's database"
     ],
     "environment": [
       "$defaults",
@@ -56,11 +61,7 @@
       "**Trusted repo**: github.com/weitzjb/wpoAdmin (this repo) and its origin remote — private; may become public later, so no personal names, addresses, booking detail or real member/financial data may ever be committed, even though it's currently private",
       "**Org-specific CLIs**: None configured for this project (user-level CLIs like chezmoi/op are out of scope for this project's recon)",
       "Routine ad hoc Django-shell data edits under `docker compose exec web python manage.py shell` against dev or prod, always through the ORM, are a normal/expected workflow for this project per CLAUDE.md"
-    ],
-    "soft_deny": [
-      "$defaults",
-      "Running `docker compose exec web python manage.py migrate` or `--force-recreate` against the live wpoAdmin server (ssh wpo) without James's explicit per-deploy yes stated in the conversation",
-      "Any `ssh wpo` command that touches the server's `.env`, runs raw SQL, or dumps/restores/overwrites the server's database"
     ]
-  }
+  },
+  "tui": "fullscreen"
 }

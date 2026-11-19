@@ -21,6 +21,7 @@ This is the home directory of James Weitz, a PICU clinician at Oxford John Radcl
 | `~/git/dailyAssistant` | Python, Shell | James's general working seat (daily task triage, ad hoc work via MCP) — also home to the WPO Google Sheets/Gmail CLI, markdown→PDF docs, and the former `~/git/scripts` utilities (now `scripts/`, including journalwatch) |
 | `~/git/documents` | Typst | Typst source for non-data documents (NHS SOPs, policies, guideline write-ups), one folder per document; PDFs are the circulated format and aren't committed. Split out of `dailyAssistant` (`docs-typst/`); data-driven reports belong in `picuData` instead |
 | `~/git/dotclaude` | Markdown | Personal Claude Code and Codex skills (`sync-repos`, `journal-club`) synced across computers |
+| `~/git/programming` | Python | Learning repo: James types Claude-supplied code chunks by hand while working through programming books (*Python Crash Course* first). Claude never writes lesson files here |
 
 Dotfiles live in a separate public repo, `weitzjb/chezmoi`, with its source at `~/.local/share/chezmoi` (not under `~/git/`). This file is managed from it — edit the chezmoi source, not `~/CLAUDE.md`.
 
